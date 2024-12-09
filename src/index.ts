@@ -264,18 +264,22 @@ const runWithInterval = () => {
     });
 
     // 3분마다 실행
-    setInterval(() => {
-      try {
-        console.log(
-          `\n${new Date().toLocaleString()} - 새로운 검색을 시작합니다.`,
-        );
-        run().catch((error) => {
-          console.error('실행 중 에러 발생:', error);
-        });
-      } catch (error) {
-        console.error('예기치 않은 에러 발생:', error);
-      }
-    }, 180000); // 3분 = 180000ms
+    setInterval(
+      () => {
+        try {
+          console.log(
+            `\n${new Date().toLocaleString()} - 새로운 검색을 시작합니다.`,
+          );
+          run().catch((error) => {
+            console.error('실행 중 에러 발생:', error);
+          });
+        } catch (error) {
+          console.error('예기치 않은 에러 발생:', error);
+        }
+      },
+      parseInt(process.env.INTERVAL_TIME),
+      10,
+    );
   } catch (error) {
     console.error('프로그램 초기화 중 에러 발생:', error);
   }

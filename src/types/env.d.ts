@@ -15,6 +15,7 @@ declare global {
 
       EMAIL_USER: string;
       EMAIL_PASSWORD: string;
+      INTERVAL_TIME: string;
     }
   }
 }
