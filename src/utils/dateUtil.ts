@@ -12,7 +12,6 @@ export function extractTimeToDateWithBase(
     // 시간 추출
     const timeRegex = /(\d{2}):(\d{2})/;
     const timeMatches = timeString.match(timeRegex);
-    console.log(timeString);
 
     if (!timeMatches) {
       throw new Error(`유효하지 않은 시간 형식입니다: ${timeString}`);

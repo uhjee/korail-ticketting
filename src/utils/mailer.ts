@@ -11,6 +11,11 @@ class EmailService {
     this.initializeTransporter();
   }
 
+  /**
+   * 이메일 전송 서비스 초기화
+   *
+   * @return  {Promise<void>}
+   */
   private async initializeTransporter() {
     try {
       this.transporter = nodemailer.createTransport({
@@ -30,6 +35,14 @@ class EmailService {
     }
   }
 
+  /**
+   * 이메일 전송
+   *
+   * @param to 수신자
+   * @param subject 제목
+   * @param html 내용
+   * @return  {Promise<any>}
+   */
   async sendEmail(to: string | string[], subject: string, html: string) {
     try {
       const info = await this.transporter.sendMail({
